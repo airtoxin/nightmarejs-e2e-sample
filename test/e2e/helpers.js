@@ -15,22 +15,44 @@ export default function getNightmareInstance() {
 export function goto(path, waitFor = '[data-reactroot]') {
   return (nightmare) => nightmare
     .goto(url.resolve(BASE_URL, path))
+    .inject('js', `node_modules/jquery/dist/jquery.js`)
     .wait(waitFor);
 }
 
 export function clickIncrement() {
   return (nightmare) => nightmare
-    .click('.increment');
+    .wait(() => !!$('button:contains("Increment")'))
+    .evaluate(() => {
+      $('button:contains("Increment")').click();
+      return null;
+    });
 }
 
 export function clickDecrement() {
   return (nightmare) => nightmare
-    .click('.decrement');
+    .wait(() => !!$('button:contains("Decrement")'))
+    .evaluate(() => {
+      $('button:contains("Decrement")').click();
+      return null;
+    });
 }
 
 export function clickIncrementAsync() {
   return (nightmare) => nightmare
-    .click('.increment-async');
+    .wait(() => !!$('button:contains("Increment async")'))
+    .evaluate(() => {
+      $('button:contains("Increment async")').click();
+      return null;
+    });
+}
+
+export function clickPlusN(n) {
+  return (nightmare) => nightmare
+    .wait((num) => !!$(`button:contains(+${num})`), n)
+    .evaluate((num) => {
+      $(`button:contains(+${num})`).click();
+      return null;
+    }, n);
 }
 
 export function getCount() {
