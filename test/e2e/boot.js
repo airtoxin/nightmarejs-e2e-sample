@@ -13,7 +13,7 @@ compilers.plugin('done', () => {
   });
 
   // run all files under e2e directory
-  readdir(path.resolve(__dirname, 'e2e'), (error, files) => {
+  readdir(path.resolve(__dirname, 'specs'), (error, files) => {
     if (error) {
       process.exit(1);
     }
