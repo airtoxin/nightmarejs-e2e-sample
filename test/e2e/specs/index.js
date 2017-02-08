@@ -56,17 +56,17 @@ describe('nightmarejs-e2e-sample', () => {
   );
 
   it('should increment +10, +300 and +575', () => page
-  .use(goto('/'))
-  .use(clickPlusN(10))
-  .use(getCount())
-  .then(count => assert.strictEqual(count, 10))
-  .then(() => page
-    .use(clickPlusN(300))
+    .use(goto('/'))
+    .use(clickPlusN(10))
     .use(getCount())
-    .then(count => assert.strictEqual(count, 10 + 300)))
-  .then(() => page
-    .use(clickPlusN(575))
-    .use(getCount())
-    .then(count => assert.strictEqual(count, 10 + 300 + 575))),
-);
+    .then(count => assert.strictEqual(count, 10))
+    .then(() => page
+      .use(clickPlusN(300))
+      .use(getCount())
+      .then(count => assert.strictEqual(count, 10 + 300)))
+    .then(() => page
+      .use(clickPlusN(575))
+      .use(getCount())
+      .then(count => assert.strictEqual(count, 10 + 300 + 575))),
+  );
 });
