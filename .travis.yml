@@ -2,8 +2,7 @@ language: node_js
 node_js:
   - "4"
   - "6"
-install:
-  - yarn
+  - "7"
 before_script:
   - NODE_ENV=production npm run build
   - docker run --rm -i v `pwd`:`pwd -e "NODE_ENV=production" -e "EXECUTE_E2E_HEADLESS=true" fentas/nightmare bash -c "cd `pwd` && xvfb-run npm run e2etest"
