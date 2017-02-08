@@ -13,14 +13,14 @@ describe('nightmarejs-e2e-sample', () => {
   beforeEach(() => {
     page = getNightmareInstance();
   });
-  afterEach(done => {
+  afterEach((done) => {
     page.halt(null, done);
   });
 
   it('should show page', () => page
     .use(goto('/'))
     .title()
-    .then(title => assert.strictEqual(title, 'nightmarejs-e2e-sample'))
+    .then(title => assert.strictEqual(title, 'nightmarejs-e2e-sample')),
   );
 
   it('should increment', () => page
@@ -31,7 +31,7 @@ describe('nightmarejs-e2e-sample', () => {
     .use(clickIncrement())
     .use(clickIncrement())
     .use(getCount())
-    .then(count => assert.strictEqual(count, 5))
+    .then(count => assert.strictEqual(count, 5)),
   );
 
   it('should decrement', () => page
@@ -40,7 +40,7 @@ describe('nightmarejs-e2e-sample', () => {
     .use(clickDecrement())
     .use(clickDecrement())
     .use(getCount())
-    .then(count => assert.strictEqual(count, -3))
+    .then(count => assert.strictEqual(count, -3)),
   );
 
   it('should increment asynchronously', () => page
@@ -51,11 +51,11 @@ describe('nightmarejs-e2e-sample', () => {
       .then(() => page
         .wait(3000)
         .use(getCount())
-        .then(count => assert.strictEqual(count, 1))
-      )
+        .then(count => assert.strictEqual(count, 1)),
+      ),
   );
 
-it('should increment +10, +300 and +575', () => page
+  it('should increment +10, +300 and +575', () => page
   .use(goto('/'))
   .use(clickPlusN(10))
   .use(getCount())
@@ -67,6 +67,6 @@ it('should increment +10, +300 and +575', () => page
   .then(() => page
     .use(clickPlusN(575))
     .use(getCount())
-    .then(count => assert.strictEqual(count, 10 + 300 + 575)))
+    .then(count => assert.strictEqual(count, 10 + 300 + 575))),
 );
 });

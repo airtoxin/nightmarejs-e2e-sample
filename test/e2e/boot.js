@@ -4,7 +4,7 @@ import webpack from 'webpack';
 import Mocha from 'mocha';
 import { resolve } from 'path';
 import readdir from 'recursive-readdir';
-import config from '../../webpack.test-config.babel.js';
+import config from './webpack.test-config.babel';
 
 const compilers = webpack(config);
 
@@ -19,7 +19,7 @@ compilers.plugin('done', () => {
     }
 
     files
-      .filter(f => {
+      .filter((f) => {
         if (process.env.E2E_TARGET) return !!f.match(process.env.E2E_TARGET);
         return true;
       })
