@@ -1,9 +1,10 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import WebpackDevServer from 'webpack-dev-server';
 import webpack from 'webpack';
 import Mocha from 'mocha';
-import path from 'path';
+import { resolve } from 'path';
 import readdir from 'recursive-readdir';
-import config from './webpack.test-config.babel';
+import config from '../../webpack.test-config.babel.js';
 
 const compilers = webpack(config);
 
@@ -12,13 +13,17 @@ compilers.plugin('done', () => {
     timeout: 100000, // 100 sec
   });
 
-  // run all files under e2e directory
-  readdir(path.resolve(__dirname, 'specs'), (error, files) => {
+  readdir(resolve(__dirname, './specs'), (error, files) => {
     if (error) {
       process.exit(1);
     }
 
-    mocha.addFile(...files);
+    files
+      .filter(f => {
+        if (process.env.E2E_TARGET) return !!f.match(process.env.E2E_TARGET);
+        return true;
+      })
+      .forEach(f => mocha.addFile(f));
     mocha.run(process.exit);
   });
 });
