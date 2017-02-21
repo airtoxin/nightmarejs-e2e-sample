@@ -2,12 +2,16 @@
 
 E2E test sample repository using Nightmare.js
 
+## とりあえず実行する
+
+0. `npm install`
+0. `npm run test:e2e`
+
 ## Documents
 
 ### 序文
 
 E2EテストといえばSeleniumですが起動までの準備が大変だったりAPIに癖があったりとなかなか苦労する事も多いです。  
-(今は亡きSmartica v3もseleniumでテストしていましたがかなり大変でした💦)  
 そんな感じなのでテスト自体のメンテナンスコストが高く、結局UIテストはテスト項目書を作って手動で行うみたいになりがちです。  
 
 でもエンジニアなら自動化したい……。  
@@ -200,7 +204,7 @@ docker run --rm -i \
 ```
 
 のように実行します。  
-Proactive AIではCI実行時はNightmareのオプションでヘッドレス実行するようにしていますが、効果があるのかは不明。  
+実行時はNightmareのオプションでヘッドレス実行するようにしていますが、効果があるのかは不明。  
 
 ## License
 

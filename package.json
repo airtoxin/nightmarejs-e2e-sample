@@ -4,6 +4,7 @@
   "description": "E2E test sample repository using Nightmare.js",
   "main": "lib/index.js",
   "scripts": {
+    "start": "npm run dev",
     "build": "webpack",
     "watch": "webpack --watch",
     "dev": "webpack-dev-server",
