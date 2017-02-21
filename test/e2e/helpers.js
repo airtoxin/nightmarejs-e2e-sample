@@ -24,7 +24,7 @@ export function clickIncrement() {
   return nightmare => nightmare
     .wait(() => !!$('button:contains("Increment")'))
     .evaluate(() => {
-      $('button:contains("Increment")').click();
+      $('button:contains("Increment")').eq(0).click();
       return null;
     });
 }
