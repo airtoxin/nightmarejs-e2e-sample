@@ -196,7 +196,7 @@ docker run --rm -i \
   -e "NODE_ENV=production" \
   -e "EXECUTE_E2E_HEADLESS=true" \
   fentas/nightmare \
-  bash -c "cd `pwd` && xvfb-run npm run e2etest"
+  bash -c "cd `pwd` && xvfb-run npm run test:e2e"
 ```
 
 のように実行します。  
