@@ -55,7 +55,7 @@
     "eslint-plugin-jsx-a11y": "4.0.0",
     "eslint-plugin-react": "6.9.0",
     "ignore-styles": "5.0.1",
-    "jsdom": "9.9.1",
+    "jsdom": "16.5.0",
     "jsdom-global": "2.1.1",
     "mocha": "3.2.0",
     "nightmare": "2.9.1",
